@@ -1,0 +1,74 @@
+# Ambiente virtual
+venv/
+env/
+ENV/
+.venv/
+.virtualenv/
+
+# Variáveis de ambiente
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Diretórios de resultados e visualizações
+results/
+comparisons/
+Backup/
+
+# Arquivos de credenciais
+gen-lang-cred.json
+*-cred.json
+*.pem
+*.key
+
+# Arquivos gerados durante a execução
+temp_prompt.txt
+call_finetuned_model.py
+*.jsonl
+
+# Arquivos de dados grandes (opcional, descomente se necessário)
+# *.csv
+# *.xlsx
+
+# Cache de Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Distribuição / empacotamento
+dist/
+build/
+*.egg-info/
+*.egg
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# IDEs e editores
+.idea/
+.vscode/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+.project
+.pydevproject
+.settings/
+.classpath
+
+# Notebooks Jupyter
+.ipynb_checkpoints
+*.ipynb
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
