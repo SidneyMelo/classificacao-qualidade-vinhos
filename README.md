@@ -8,7 +8,7 @@
 Um sistema completo para classificação de qualidade de vinhos que compara aprendizado de máquina tradicional (Random Forest) com Modelos de Linguagem de Grande Escala (Google Gemini), com recursos de fine-tuning, testes interativos e análises detalhadas de desempenho.
 
 <p align="center">
-  <img src="https://storage.googleapis.com/kaggle-datasets-images/7018321/11234696/e509e584ac952d3def6470a2a6817b0e/dataset-cover.png" alt="Sistema de Classificação de Vinhos" width="600"/>
+  <img src="https://gitlab.winehq.org/uploads/-/system/project/avatar/5/oic_winlogo_8_256x256x32.png" alt="Sistema de Classificação de Vinhos" width="260"/>
 </p>
 
 ## 📋 Índice
