@@ -1653,12 +1653,13 @@ def main():
         print("1. Preparar arquivos para fine-tuning do Gemini")
         print("2. Treinar e avaliar modelo Random Forest")
         print("3. Avaliar com Gemini (modo few-shot)")
-        print("4. Teste final com todos os modelos")
-        print("5. Visualizar resultados")
-        print("6. Testar modelo com valores personalizados")
-        print("7. Ver resumo de resultados")
-        print("8. Executar pipeline completo")
-        print("9. Salvar resultados e gerar comparativos")
+        print("4. Avaliar com Gemini (modo zero-shot)")
+        print("5. Teste final com todos os modelos")
+        print("6. Visualizar resultados")
+        print("7. Testar modelo com valores personalizados")
+        print("8. Ver resumo de resultados")
+        print("9. Executar pipeline completo")
+        print("10. Salvar resultados e gerar comparativos")
         print("0. Sair")
         
         choice = input("\nEscolha uma opção (0-9): ").strip()
@@ -1703,8 +1704,29 @@ def main():
                 pause_seconds=pause_seconds,
                 use_few_shot=True
             )
-            
+
         elif choice == "4":
+            if not GEMINI_AVAILABLE:
+                print("\nAVISO: API do Gemini não configurada. Configure a GOOGLE_API_KEY.")
+                continue
+                
+            print("\n=== Avaliando com Gemini (modo zero-shot) ===")
+            # Perguntar parâmetros
+            try:
+                batch_size = int(input("Tamanho do batch (padrão 29): ") or "29")
+                pause_seconds = int(input("Segundos de pausa entre batches (padrão 60): ") or "60")
+            except ValueError:
+                print("Valores inválidos. Usando valores padrão.")
+                batch_size, pause_seconds = 29, 60
+                
+            gemini_base_results = evaluate_with_gemini(
+                val_df,
+                batch_size=batch_size,
+                pause_seconds=pause_seconds,
+                use_few_shot=False
+            )
+            
+        elif choice == "5":
             if rf_results is None:
                 print("\nAVISO: É necessário treinar o modelo Random Forest primeiro (opção 2).")
                 continue
@@ -1721,7 +1743,7 @@ def main():
             
             print("\nTeste final completado com sucesso!")
             
-        elif choice == "5":
+        elif choice == "6":
             if rf_results is None:
                 print("\nAVISO: É necessário treinar o modelo Random Forest primeiro (opção 2).")
                 continue
@@ -1735,7 +1757,7 @@ def main():
             )
             print("\nVisualizações salvas no diretório atual.")
             
-        elif choice == "6":
+        elif choice == "7":
             if rf_results is None:
                 print("\nAVISO: É necessário treinar o modelo Random Forest primeiro (opção 2).")
                 continue
@@ -1747,7 +1769,7 @@ def main():
             print("\n=== Teste com Valores Personalizados ===")
             predict_user_input(rf_results['model'], rf_results['feature_cols'])
             
-        elif choice == "7":
+        elif choice == "8":
             print("\n===== RESUMO DE RESULTADOS =====")
             if rf_results:
                 print(f"Random Forest (validação): {rf_results['accuracy']:.4f}")
@@ -1777,7 +1799,7 @@ def main():
             else:
                 print("\nArquivos para fine-tuning: Não gerados")
                 
-        elif choice == "8":
+        elif choice == "9":
             print("\n=== Executando Pipeline Completo ===")
             
             # 1. Preparar arquivos para fine-tuning
@@ -1832,7 +1854,7 @@ def main():
             
             print("\nPipeline completo executado com sucesso!")
             
-        elif choice == "9":
+        elif choice == "10":
             print("\n=== Salvando Resultados e Gerando Comparativos ===")
             
             if not final_test_results:

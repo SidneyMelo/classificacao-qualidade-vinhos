@@ -95,17 +95,18 @@ A aplicação oferece um menu interativo com as seguintes opções:
 1. **Preparar arquivos para fine-tuning do Gemini** - Cria arquivos JSONL para treinamento
 2. **Treinar e avaliar modelo Random Forest** - Constrói e valida o modelo RF
 3. **Avaliar com Gemini (modo few-shot)** - Testa usando aprendizado few-shot
-4. **Teste final com todos os modelos** - Avalia todos os modelos no conjunto de teste
-5. **Visualizar resultados** - Gera gráficos e visualizações comparativas
-6. **Testar modelo com valores personalizados** - Interface interativa para testes customizados
-7. **Ver resumo de resultados** - Mostra visão geral das métricas de desempenho
-8. **Executar pipeline completo** - Executa todas as etapas automaticamente
-9. **Salvar resultados e gerar comparativos** - Salva resultados em JSON e cria visualizações
+4. **Avaliar com Gemini (modo zero-shot)** - Testa usando aprendizado zero-shot
+5. **Teste final com todos os modelos** - Avalia todos os modelos no conjunto de teste
+6. **Visualizar resultados** - Gera gráficos e visualizações comparativas
+7. **Testar modelo com valores personalizados** - Interface interativa para testes customizados
+8. **Ver resumo de resultados** - Mostra visão geral das métricas de desempenho
+9. **Executar pipeline completo** - Executa todas as etapas automaticamente
+10. **Salvar resultados e gerar comparativos** - Salva resultados em JSON e cria visualizações
 0. **Sair** - Encerra o programa
 
 ### Testes Personalizados
 
-Ao selecionar a opção 6, você pode:
+Ao selecionar a opção 7, você pode:
 - Inserir características do vinho manualmente
 - Usar exemplos pré-definidos para vinhos de qualidade baixa, média ou alta
 - Escolher entre diferentes modelos (Random Forest, variantes do Gemini, modelo com fine-tuning)
@@ -281,16 +282,16 @@ O processo de fine-tuning permite melhorar o desempenho do modelo Gemini especif
    ```
 
 2. **Testar o Modelo Fine-tuned**
-   - Selecione a opção **6: Testar modelo com valores personalizados**
+   - Selecione a opção **7: Testar modelo com valores personalizados**
    - Escolha o modelo fine-tuned quando solicitado
    - Insira características do vinho ou use exemplos pré-definidos
 
 3. **Avaliar Desempenho**
-   - Selecione a opção **4: Teste final com todos os modelos**
+   - Selecione a opção **5: Teste final com todos os modelos**
    - Compare o desempenho do modelo fine-tuned com os outros modelos
    
 4. **Visualizar Resultados**
-   - Selecione a opção **5: Visualizar resultados**
+   - Selecione a opção **6: Visualizar resultados**
    - Explore os gráficos comparativos e as métricas de desempenho
 
 ## 📊 Estrutura do Projeto
@@ -309,7 +310,7 @@ classificacao-qualidade-vinhos/
 
 ## 🧪 Testando Diferentes Modelos <a name="-testando-diferentes-modelos"/>
 
-O sistema suporta três tipos de modelos:
+O sistema suporta quatro tipos de modelos:
 
 1. **Random Forest**: Abordagem tradicional de ML
    - Vantagens: Alto desempenho (geralmente a maior acurácia), rápido, interpretável
@@ -319,7 +320,11 @@ O sistema suporta três tipos de modelos:
    - Vantagens: Não requer treinamento específico, adaptável
    - Desvantagens: Geralmente menos preciso que os outros métodos
 
-3. **Gemini com Fine-tuning**: Modelo treinado especificamente para classificação de vinhos
+3. **Gemini com Aprendizado Zero-shot**: Instruindo o LLM sem fornecer exemplos
+   - Vantagens: Mais simples, não requer exemplos prévios, completamente adaptável a novas tarefas
+   - Desvantagens: Geralmente menos preciso que métodos que fornecem exemplos ou treinamento específico
+
+4. **Gemini com Fine-tuning**: Modelo treinado especificamente para classificação de vinhos
    - Vantagens: Combina o conhecimento do LLM com treinamento específico da tarefa
    - Desvantagens: Requer processo adicional de fine-tuning
 
