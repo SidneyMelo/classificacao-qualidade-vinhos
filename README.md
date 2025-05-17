@@ -175,7 +175,7 @@ O processo de fine-tuning permite melhorar o desempenho do modelo Gemini especif
      - Processar o dataset de vinhos
      - Criar exemplos formatados para o modelo
      - Gerar um arquivo JSONL com pares de instruções/respostas
-     - Salvar o arquivo (geralmente como `wine_tuning_data.jsonl`)
+     - Salvar o arquivo (geralmente como `gemini_finetune_train.jsonl`)
 
 ### 2. Acessar e Configurar o Google Cloud
 
@@ -198,7 +198,7 @@ O processo de fine-tuning permite melhorar o desempenho do modelo Gemini especif
 ### 3. Carregar os Dados e Iniciar o Treinamento
 
 1. **Upload do Arquivo JSONL**
-   - Localize o arquivo `wine_tuning_data.jsonl` gerado na etapa 1
+   - Localize o arquivo `gemini_finetune_train.jsonl` gerado na etapa 1
    - Faça upload deste arquivo
    
 2. **Configurar Validação**
